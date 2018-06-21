@@ -22,15 +22,15 @@ type Link struct {
 	// A map representing parameters to pass to an operation as specified with operationId or identified via operationRef.
 	// The key is the parameter name to be used, whereas the value can be a constant or an expression to be evaluated and passed to the linked operation.
 	// The parameter name can be qualified using the parameter location [{in}.]{name} for operations that use the same parameter name in different locations (e.g. path.id).
-	Parameters map[string]Parameter `json:"parameters,omitempty"`
+	Parameters map[string]AnyOrExpressions `json:"parameters,omitempty"`
 
 	// A literal value or to use as a request body when calling the target operation.
-	RequestBody *RequestBodyOrString `json:"requestBody,omitempty"`
+	RequestBody *AnyOrExpressions `json:"requestBody,omitempty"`
 
 	// A description of the link.
 	// CommonMark syntax MAY be used for rich text representation.
 	Description string `json:"description,omitempty"`
 
 	// A server object to be used by the target operation.
-	Server Server `json:"server,omitempty"`
+	Server *Server `json:"server,omitempty"`
 }
