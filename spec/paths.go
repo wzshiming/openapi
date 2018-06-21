@@ -20,28 +20,28 @@ type PathItem struct {
 	Description string `json:"description,omitempty"`
 
 	// A definition of a GET operation on this path.
-	Get Operation `json:"get,omitempty"`
+	Get *Operation `json:"get,omitempty"`
 
 	// A definition of a PUT operation on this path.
-	Put Operation `json:"put,omitempty"`
+	Put *Operation `json:"put,omitempty"`
 
 	// A definition of a POST operation on this path.
-	Post Operation `json:"post,omitempty"`
+	Post *Operation `json:"post,omitempty"`
 
 	// A definition of a DELETE operation on this path.
-	Delete Operation `json:"delete,omitempty"`
+	Delete *Operation `json:"delete,omitempty"`
 
 	// A definition of a OPTIONS operation on this path.
-	Options Operation `json:"options,omitempty"`
+	Options *Operation `json:"options,omitempty"`
 
 	// A definition of a HEAD operation on this path.
-	Head Operation `json:"head,omitempty"`
+	Head *Operation `json:"head,omitempty"`
 
 	// A definition of a PATCH operation on this path.
-	Patch Operation `json:"patch,omitempty"`
+	Patch *Operation `json:"patch,omitempty"`
 
 	// A definition of a TRACE operation on this path.
-	Trace Operation `json:"trace,omitempty"`
+	Trace *Operation `json:"trace,omitempty"`
 
 	// An alternative server array to service all operations in this path.
 	Servers Servers `json:"servers,omitempty"`
