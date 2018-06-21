@@ -14,8 +14,6 @@ type RequestBodyOrString struct {
 	RequestBody *RequestBody
 }
 
-type Any interface{}
-
 type Headers map[string]Header
 type Header Parameter
 
