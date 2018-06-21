@@ -20,7 +20,7 @@ type Response struct {
 	// Maps a header name to its definition.
 	// RFC7230 states header names are case insensitive.
 	// If a response header is defined with the name "Content-Type", it SHALL be ignored.
-	Headers Headers `json:"headers,omitempty"`
+	Headers map[string]Header `json:"headers,omitempty"`
 
 	// A map containing descriptions of potential response payloads.
 	// The key is a media type or media type range and the value describes it.

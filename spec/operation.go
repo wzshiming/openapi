@@ -42,7 +42,7 @@ type Operation struct {
 	// The key is a unique identifier for the Callback Object.
 	// Each value in the map is a Callback Object that describes a request that may be initiated by the API provider and the expected responses.
 	// The key value used to identify the callback object is an expression, evaluated at runtime, that identifies a URL to use for the callback operation.
-	Callbacks Callbacks `json:"callbacks,omitempty"`
+	Callbacks map[string]Callback `json:"callbacks,omitempty"`
 
 	// Declares this operation to be deprecated.
 	// Consumers SHOULD refrain from usage of the declared operation.
