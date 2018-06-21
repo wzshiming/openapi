@@ -6,7 +6,6 @@ package spec
 // For more information about the properties, see JSON Schema Core and JSON Schema Validation.
 // Unless stated otherwise, the property definitions follow the JSON Schema.
 type Schema struct {
-	Refable
 
 	// Allows sending a null value for the defined schema.
 	// Default value is false.
@@ -75,16 +74,16 @@ type Schema struct {
 	Type StringOrArray `json:"type,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	AllOf []Schema `json:"allOf,omitempty"`
+	AllOf []SchemaOrRefable `json:"allOf,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	OneOf []Schema `json:"oneOf,omitempty"`
+	OneOf []SchemaOrRefable `json:"oneOf,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	AnyOf []Schema `json:"anyOf,omitempty"`
+	AnyOf []SchemaOrRefable `json:"anyOf,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	Not *Schema `json:"not,omitempty"`
+	Not *SchemaOrRefable `json:"not,omitempty"`
 
 	// Value MUST be an object and not an array.
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
@@ -92,11 +91,11 @@ type Schema struct {
 	Items SchemaOrArray `json:"items,omitempty"`
 
 	// Property definitions MUST be a Schema Object and not a standard JSON Schema (inline or referenced).
-	Properties map[string]Schema `json:"properties,omitempty"`
+	Properties map[string]SchemaOrRefable `json:"properties,omitempty"`
 
 	// Value can be boolean or object.
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	AdditionalProperties *SchemaOrBool `json:"additionalProperties,omitempty"`
+	AdditionalProperties *SchemaOrRefable `json:"additionalProperties,omitempty"`
 
 	// CommonMark syntax MAY be used for rich text representation.
 	Description string `json:"description,omitempty"`

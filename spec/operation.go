@@ -27,12 +27,12 @@ type Operation struct {
 	// The list MUST NOT include duplicated parameters.
 	// A unique parameter is defined by a combination of a name and location.
 	// The list can use the Reference Object to link to parameters that are defined at the OpenAPI Object's components/parameters.
-	Parameters Parameters `json:"parameters,omitempty"`
+	Parameters []ParameterOrRefable `json:"parameters,omitempty"`
 
 	// The request body applicable for this operation.
 	// The requestBody is only supported in HTTP methods where the HTTP 1.1 specification RFC7231 has explicitly defined semantics for request bodies.
 	// In other cases where the HTTP spec is vague, requestBody SHALL be ignored by consumers.
-	RequestBody *RequestBody `json:"requestBody,omitempty"`
+	RequestBody *RequestBodyOrRefable `json:"requestBody,omitempty"`
 
 	// REQUIRED.
 	// The list of possible responses as they are returned from executing this operation.
@@ -42,7 +42,7 @@ type Operation struct {
 	// The key is a unique identifier for the Callback Object.
 	// Each value in the map is a Callback Object that describes a request that may be initiated by the API provider and the expected responses.
 	// The key value used to identify the callback object is an expression, evaluated at runtime, that identifies a URL to use for the callback operation.
-	Callbacks map[string]Callback `json:"callbacks,omitempty"`
+	Callbacks map[string]CallbackOrRefable `json:"callbacks,omitempty"`
 
 	// Declares this operation to be deprecated.
 	// Consumers SHOULD refrain from usage of the declared operation.
@@ -58,5 +58,5 @@ type Operation struct {
 
 	// An alternative server array to service this operation.
 	// If an alternative server object is specified at the Path Item Object or Root level, it will be overridden by this value.
-	Servers Servers `json:"servers,omitempty"`
+	Servers []Server `json:"servers,omitempty"`
 }

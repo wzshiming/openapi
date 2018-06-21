@@ -2,7 +2,6 @@ package spec
 
 // RequestBody Describes a single request body.
 type RequestBody struct {
-	Refable
 
 	// A brief description of the request body.
 	// This could contain examples of use.
@@ -14,7 +13,7 @@ type RequestBody struct {
 	// The key is a media type or media type range and the value describes it.
 	// For requests that match multiple keys, only the most specific key is applicable.
 	// e.g. text/plain overrides text/*
-	Content MediaTypes `json:"content,omitempty"`
+	Content map[string]MediaType `json:"content,omitempty"`
 
 	// Determines if the request body is required in the request.
 	// Defaults to false.

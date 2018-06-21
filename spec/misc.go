@@ -33,11 +33,11 @@ func (m *StringOrArray) UnmarshalJSON(data []byte) error {
 	return json.Unmarshal(data, []string(*m))
 }
 
-type SchemaOrArray []Schema
+type SchemaOrArray []SchemaOrRefable
 
 // MarshalJSON returns m as the JSON encoding of m.
 func (m SchemaOrArray) MarshalJSON() ([]byte, error) {
-	return json.Marshal([]Schema(m))
+	return json.Marshal([]SchemaOrRefable(m))
 }
 
 // UnmarshalJSON sets *m to a copy of data.
@@ -49,30 +49,16 @@ func (m *SchemaOrArray) UnmarshalJSON(data []byte) error {
 		return nil
 	}
 	if data[0] != '[' {
-		s := Schema{}
+		s := SchemaOrRefable{}
 		err := json.Unmarshal(data, &s)
 		if err != nil {
 			return err
 		}
-		*m = []Schema{s}
+		*m = []SchemaOrRefable{s}
 		return nil
 	}
-	return json.Unmarshal(data, []Schema(*m))
+	return json.Unmarshal(data, []SchemaOrRefable(*m))
 }
-
-type SchemaOrBool struct {
-	Allows bool
-	Schema *Schema
-}
-
-type RequestBodyOrString struct {
-	Literal     string
-	RequestBody *RequestBody
-}
-
-type Header Parameter
-
-type Callback map[Expressions]PathItem
 
 type AnyOrExpressions struct {
 	Expressions Expressions

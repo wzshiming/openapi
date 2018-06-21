@@ -10,7 +10,6 @@ type Paths map[string]PathItem
 // The path itself is still exposed to the documentation viewer but they will
 // not know which operations and parameters are available.
 type PathItem struct {
-	Refable
 
 	// An optional, string summary, intended to apply to all operations in this path.
 	Summary string `json:"summary,omitempty"`
@@ -44,12 +43,12 @@ type PathItem struct {
 	Trace *Operation `json:"trace,omitempty"`
 
 	// An alternative server array to service all operations in this path.
-	Servers Servers `json:"servers,omitempty"`
+	Servers []Server `json:"servers,omitempty"`
 
 	// A list of parameters that are applicable for all the operations described under this path.
 	// These parameters can be overridden at the operation level, but cannot be removed there.
 	// The list MUST NOT include duplicated parameters.
 	// A unique parameter is defined by a combination of a name and location.
 	// The list can use the Reference Object to link to parameters that are defined at the OpenAPI Object's components/parameters.
-	Parameters Parameters `json:"parameters,omitempty"`
+	Parameters []ParameterOrRefable `json:"parameters,omitempty"`
 }

@@ -43,7 +43,7 @@ import (
 	"encoding/json"
 )
 
-// {{ .X }}OrRefable It's the Union type of {{ .X }} or Refable
+// {{ .X }}OrRefable It's the Union type of {{ .X }} and Refable
 type {{ .X }}OrRefable struct {
 	Refable
 	{{ .X }} *{{ .X }}

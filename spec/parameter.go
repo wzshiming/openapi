@@ -1,8 +1,5 @@
 package spec
 
-// Parameters
-type Parameters []Parameter
-
 // Parameter Describes a single operation parameter.
 // A unique parameter is defined by a combination of a name and location.
 // Parameter Locations
@@ -16,7 +13,6 @@ type Parameters []Parameter
 // Note that RFC7230 states header names are case insensitive.
 // cookie - Used to pass a specific cookie value to the API.
 type Parameter struct {
-	Refable
 
 	// REQUIRED.
 	// The name of the parameter.
@@ -70,7 +66,7 @@ type Parameter struct {
 	AllowReserved bool `json:"allowReserved,omitempty"`
 
 	// The schema defining the type used for the parameter.
-	Schema Schema `json:"schema,omitempty"`
+	Schema SchemaOrRefable `json:"schema,omitempty"`
 
 	// Example of the media type.
 	// The example SHOULD match the specified schema and encoding properties if present.
@@ -83,7 +79,7 @@ type Parameter struct {
 	// Each example SHOULD contain a value in the correct format as specified in the parameter encoding.
 	// The examples field is mutually exclusive of the example field.
 	// Furthermore, if referencing a schema which contains an example, the examples value SHALL override the example provided by the schema.
-	Examples Examples `json:"examples,omitempty"`
+	Examples map[string]ExampleOrRefable `json:"examples,omitempty"`
 
 	// For more complex scenarios, the content property can define the media type and schema of the parameter.
 	// A parameter MUST contain either a schema property, or a content property, but not both.
@@ -92,5 +88,5 @@ type Parameter struct {
 	// A map containing the representations for the parameter.
 	// The key is the media type and the value describes it.
 	// The map MUST only contain one entry.
-	Content MediaTypes `json:"content,omitempty"`
+	Content map[string]MediaType `json:"content,omitempty"`
 }

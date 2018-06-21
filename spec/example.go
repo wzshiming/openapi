@@ -1,11 +1,7 @@
 package spec
 
-// Examples
-type Examples map[string]Example
-
 // Example
 type Example struct {
-	Refable
 
 	// Short description for the example.
 	Summary string `json:"summary,omitempty"`

@@ -1,12 +1,11 @@
 package spec
 
-// MediaTypes
-type MediaTypes map[string]MediaType
+
 
 // MediaType Each Media Type Object provides schema and examples for the media type identified by its key.
 type MediaType struct {
 	// The schema defining the type used for the request body.
-	Schema *Schema `json:"schema,omitempty"`
+	Schema *SchemaOrRefable `json:"schema,omitempty"`
 
 	// Any Example of the media type.
 	// The example object SHOULD be in the correct format as specified by the media type.

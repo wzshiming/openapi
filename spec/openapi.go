@@ -16,7 +16,7 @@ type OpenAPI struct {
 
 	// An array of Server Objects, which provide connectivity information to a target server.
 	// If the servers property is not provided, or is an empty array, the default value would be a Server Object with a url value of /.
-	Servers Servers `json:"servers,omitempty"`
+	Servers []Server `json:"servers,omitempty"`
 
 	// REQUIRED.
 	// The available paths and operations for the API.
