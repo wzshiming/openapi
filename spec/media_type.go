@@ -1,7 +1,7 @@
 package spec
 
 // MediaTypes
-type MediaTypes []MediaType
+type MediaTypes map[string]MediaType
 
 // MediaType Each Media Type Object provides schema and examples for the media type identified by its key.
 type MediaType struct {
