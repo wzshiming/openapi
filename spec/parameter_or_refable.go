@@ -10,7 +10,7 @@ import (
 // ParameterOrRefable It's the Union type of Parameter and Refable
 type ParameterOrRefable struct {
 	Refable
-	Parameter *Parameter
+	Parameter
 }
 
 // MarshalJSON returns m as the JSON encoding of Parameter or Refable.

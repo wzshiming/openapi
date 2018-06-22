@@ -10,7 +10,7 @@ import (
 // SchemaOrRefable It's the Union type of Schema and Refable
 type SchemaOrRefable struct {
 	Refable
-	Schema *Schema
+	Schema
 }
 
 // MarshalJSON returns m as the JSON encoding of Schema or Refable.

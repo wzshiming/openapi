@@ -10,7 +10,7 @@ import (
 // SecuritySchemeOrRefable It's the Union type of SecurityScheme and Refable
 type SecuritySchemeOrRefable struct {
 	Refable
-	SecurityScheme *SecurityScheme
+	SecurityScheme
 }
 
 // MarshalJSON returns m as the JSON encoding of SecurityScheme or Refable.

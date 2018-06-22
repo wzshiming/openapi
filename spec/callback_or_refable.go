@@ -10,7 +10,7 @@ import (
 // CallbackOrRefable It's the Union type of Callback and Refable
 type CallbackOrRefable struct {
 	Refable
-	Callback *Callback
+	Callback
 }
 
 // MarshalJSON returns m as the JSON encoding of Callback or Refable.

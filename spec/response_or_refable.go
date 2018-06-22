@@ -10,7 +10,7 @@ import (
 // ResponseOrRefable It's the Union type of Response and Refable
 type ResponseOrRefable struct {
 	Refable
-	Response *Response
+	Response
 }
 
 // MarshalJSON returns m as the JSON encoding of Response or Refable.

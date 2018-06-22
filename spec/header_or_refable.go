@@ -10,7 +10,7 @@ import (
 // HeaderOrRefable It's the Union type of Header and Refable
 type HeaderOrRefable struct {
 	Refable
-	Header *Header
+	Header
 }
 
 // MarshalJSON returns m as the JSON encoding of Header or Refable.

@@ -10,7 +10,7 @@ import (
 // RequestBodyOrRefable It's the Union type of RequestBody and Refable
 type RequestBodyOrRefable struct {
 	Refable
-	RequestBody *RequestBody
+	RequestBody
 }
 
 // MarshalJSON returns m as the JSON encoding of RequestBody or Refable.

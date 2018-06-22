@@ -10,7 +10,7 @@ import (
 // LinkOrRefable It's the Union type of Link and Refable
 type LinkOrRefable struct {
 	Refable
-	Link *Link
+	Link
 }
 
 // MarshalJSON returns m as the JSON encoding of Link or Refable.

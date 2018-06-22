@@ -10,7 +10,7 @@ import (
 // ExampleOrRefable It's the Union type of Example and Refable
 type ExampleOrRefable struct {
 	Refable
-	Example *Example
+	Example
 }
 
 // MarshalJSON returns m as the JSON encoding of Example or Refable.
