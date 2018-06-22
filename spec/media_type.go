@@ -1,7 +1,5 @@
 package spec
 
-
-
 // MediaType Each Media Type Object provides schema and examples for the media type identified by its key.
 type MediaType struct {
 	// The schema defining the type used for the request body.
