@@ -1,7 +1,7 @@
 package spec
 
-// Example
-type Example struct {
+// example
+type example struct {
 
 	// Short description for the example.
 	Summary string `json:"summary,omitempty"`

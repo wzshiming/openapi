@@ -7,24 +7,24 @@ import (
 	"errors"
 )
 
-// RequestBodyOrRefable It's the Union type of RequestBody and Refable
-type RequestBodyOrRefable struct {
+// RequestBody It's the Union type of requestBody and Refable
+type RequestBody struct {
 	Refable
-	RequestBody
+	requestBody
 }
 
-// MarshalJSON returns m as the JSON encoding of RequestBody or Refable.
-func (m RequestBodyOrRefable) MarshalJSON() ([]byte, error) {
+// MarshalJSON returns m as the JSON encoding of requestBody or Refable.
+func (m RequestBody) MarshalJSON() ([]byte, error) {
 	if m.Ref != "" {
 		return json.Marshal(m.Refable)
 	}
-	return json.Marshal(m.RequestBody)
+	return json.Marshal(m.requestBody)
 }
 
-// UnmarshalJSON sets RequestBody or Refable to data.
-func (m *RequestBodyOrRefable) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON sets requestBody or Refable to data.
+func (m *RequestBody) UnmarshalJSON(data []byte) error {
 	if m == nil {
-		return errors.New("spec.RequestBodyOrRefable: UnmarshalJSON on nil pointer")
+		return errors.New("spec.RequestBody: UnmarshalJSON on nil pointer")
 	}
 	if len(data) == 0 {
 		return nil
@@ -36,5 +36,5 @@ func (m *RequestBodyOrRefable) UnmarshalJSON(data []byte) error {
 	if m.Ref != "" {
 		return nil
 	}
-	return json.Unmarshal(data, &m.RequestBody)
+	return json.Unmarshal(data, &m.requestBody)
 }

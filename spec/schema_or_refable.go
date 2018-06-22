@@ -7,24 +7,24 @@ import (
 	"errors"
 )
 
-// SchemaOrRefable It's the Union type of Schema and Refable
-type SchemaOrRefable struct {
+// Schema It's the Union type of schema and Refable
+type Schema struct {
 	Refable
-	Schema
+	schema
 }
 
-// MarshalJSON returns m as the JSON encoding of Schema or Refable.
-func (m SchemaOrRefable) MarshalJSON() ([]byte, error) {
+// MarshalJSON returns m as the JSON encoding of schema or Refable.
+func (m Schema) MarshalJSON() ([]byte, error) {
 	if m.Ref != "" {
 		return json.Marshal(m.Refable)
 	}
-	return json.Marshal(m.Schema)
+	return json.Marshal(m.schema)
 }
 
-// UnmarshalJSON sets Schema or Refable to data.
-func (m *SchemaOrRefable) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON sets schema or Refable to data.
+func (m *Schema) UnmarshalJSON(data []byte) error {
 	if m == nil {
-		return errors.New("spec.SchemaOrRefable: UnmarshalJSON on nil pointer")
+		return errors.New("spec.Schema: UnmarshalJSON on nil pointer")
 	}
 	if len(data) == 0 {
 		return nil
@@ -36,5 +36,5 @@ func (m *SchemaOrRefable) UnmarshalJSON(data []byte) error {
 	if m.Ref != "" {
 		return nil
 	}
-	return json.Unmarshal(data, &m.Schema)
+	return json.Unmarshal(data, &m.schema)
 }

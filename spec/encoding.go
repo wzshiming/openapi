@@ -12,7 +12,7 @@ type Encoding struct {
 	// A map allowing additional information to be provided as headers, for example Content-Disposition.
 	// Content-Type is described separately and SHALL be ignored in this section.
 	// This property SHALL be ignored if the request body media type is not a multipart.
-	Headers map[string]HeaderOrRefable `json:"headers,omitempty"`
+	Headers map[string]Header `json:"headers,omitempty"`
 
 	// Describes how a specific property value will be serialized depending on its type.
 	// See Parameter Object for details on the style property.

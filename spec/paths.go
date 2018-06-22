@@ -50,5 +50,5 @@ type PathItem struct {
 	// The list MUST NOT include duplicated parameters.
 	// A unique parameter is defined by a combination of a name and location.
 	// The list can use the Reference Object to link to parameters that are defined at the OpenAPI Object's components/parameters.
-	Parameters []ParameterOrRefable `json:"parameters,omitempty"`
+	Parameters []Parameter `json:"parameters,omitempty"`
 }

@@ -7,24 +7,24 @@ import (
 	"errors"
 )
 
-// ExampleOrRefable It's the Union type of Example and Refable
-type ExampleOrRefable struct {
+// Example It's the Union type of example and Refable
+type Example struct {
 	Refable
-	Example
+	example
 }
 
-// MarshalJSON returns m as the JSON encoding of Example or Refable.
-func (m ExampleOrRefable) MarshalJSON() ([]byte, error) {
+// MarshalJSON returns m as the JSON encoding of example or Refable.
+func (m Example) MarshalJSON() ([]byte, error) {
 	if m.Ref != "" {
 		return json.Marshal(m.Refable)
 	}
-	return json.Marshal(m.Example)
+	return json.Marshal(m.example)
 }
 
-// UnmarshalJSON sets Example or Refable to data.
-func (m *ExampleOrRefable) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON sets example or Refable to data.
+func (m *Example) UnmarshalJSON(data []byte) error {
 	if m == nil {
-		return errors.New("spec.ExampleOrRefable: UnmarshalJSON on nil pointer")
+		return errors.New("spec.Example: UnmarshalJSON on nil pointer")
 	}
 	if len(data) == 0 {
 		return nil
@@ -36,5 +36,5 @@ func (m *ExampleOrRefable) UnmarshalJSON(data []byte) error {
 	if m.Ref != "" {
 		return nil
 	}
-	return json.Unmarshal(data, &m.Example)
+	return json.Unmarshal(data, &m.example)
 }

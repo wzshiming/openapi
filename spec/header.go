@@ -1,4 +1,4 @@
 package spec
 
-// Header
-type Header Parameter
+// header
+type header parameter

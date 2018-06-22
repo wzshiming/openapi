@@ -10,38 +10,38 @@ const (
 )
 
 // JSONRequestBody creates a request body
-func JSONRequestBody(schema *SchemaOrRefable) *RequestBodyOrRefable {
+func JSONRequestBody(schema *Schema) *RequestBody {
 	return NewRequestBody(MimeJSON, schema)
 }
 
 // XMLRequestBody creates a request body
-func XMLRequestBody(schema *SchemaOrRefable) *RequestBodyOrRefable {
+func XMLRequestBody(schema *Schema) *RequestBody {
 	return NewRequestBody(MimeXML, schema)
 }
 
 // TextPlainRequestBody creates a request body
-func TextPlainRequestBody(schema *SchemaOrRefable) *RequestBodyOrRefable {
+func TextPlainRequestBody(schema *Schema) *RequestBody {
 	return NewRequestBody(MimeTextPlain, schema)
 }
 
 // OctetStreamRequestBody creates a request body
-func OctetStreamRequestBody(schema *SchemaOrRefable) *RequestBodyOrRefable {
+func OctetStreamRequestBody(schema *Schema) *RequestBody {
 	return NewRequestBody(MimeOctetStream, schema)
 }
 
 // URLEncodedRequestBody creates a request body
-func URLEncodedRequestBody(schema *SchemaOrRefable) *RequestBodyOrRefable {
+func URLEncodedRequestBody(schema *Schema) *RequestBody {
 	return NewRequestBody(MimeURLEncoded, schema)
 }
 
 // FormDataRequestBody creates a request body
-func FormDataRequestBody(schema *SchemaOrRefable) *RequestBodyOrRefable {
+func FormDataRequestBody(schema *Schema) *RequestBody {
 	return NewRequestBody(MimeFormData, schema)
 }
 
 // NewRequestBody creates a request body
-func NewRequestBody(typ string, schema *SchemaOrRefable) *RequestBodyOrRefable {
-	rb := &RequestBodyOrRefable{}
+func NewRequestBody(typ string, schema *Schema) *RequestBody {
+	rb := &RequestBody{}
 	rb.Content = map[string]MediaType{
 		typ: MediaType{
 			Schema: schema,

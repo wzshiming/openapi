@@ -7,24 +7,24 @@ import (
 	"errors"
 )
 
-// SecuritySchemeOrRefable It's the Union type of SecurityScheme and Refable
-type SecuritySchemeOrRefable struct {
+// SecurityScheme It's the Union type of securityScheme and Refable
+type SecurityScheme struct {
 	Refable
-	SecurityScheme
+	securityScheme
 }
 
-// MarshalJSON returns m as the JSON encoding of SecurityScheme or Refable.
-func (m SecuritySchemeOrRefable) MarshalJSON() ([]byte, error) {
+// MarshalJSON returns m as the JSON encoding of securityScheme or Refable.
+func (m SecurityScheme) MarshalJSON() ([]byte, error) {
 	if m.Ref != "" {
 		return json.Marshal(m.Refable)
 	}
-	return json.Marshal(m.SecurityScheme)
+	return json.Marshal(m.securityScheme)
 }
 
-// UnmarshalJSON sets SecurityScheme or Refable to data.
-func (m *SecuritySchemeOrRefable) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON sets securityScheme or Refable to data.
+func (m *SecurityScheme) UnmarshalJSON(data []byte) error {
 	if m == nil {
-		return errors.New("spec.SecuritySchemeOrRefable: UnmarshalJSON on nil pointer")
+		return errors.New("spec.SecurityScheme: UnmarshalJSON on nil pointer")
 	}
 	if len(data) == 0 {
 		return nil
@@ -36,5 +36,5 @@ func (m *SecuritySchemeOrRefable) UnmarshalJSON(data []byte) error {
 	if m.Ref != "" {
 		return nil
 	}
-	return json.Unmarshal(data, &m.SecurityScheme)
+	return json.Unmarshal(data, &m.securityScheme)
 }

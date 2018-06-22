@@ -1,11 +1,11 @@
 package spec
 
-// Schema The Schema Object allows the definition of input and output data types.
+// schema The Schema Object allows the definition of input and output data types.
 // These types can be objects, but also primitives and arrays.
 // This object is an extended subset of the JSON Schema Specification Wright Draft 00.
 // For more information about the properties, see JSON Schema Core and JSON Schema Validation.
 // Unless stated otherwise, the property definitions follow the JSON Schema.
-type Schema struct {
+type schema struct {
 
 	// Allows sending a null value for the defined schema.
 	// Default value is false.
@@ -74,28 +74,28 @@ type Schema struct {
 	Type string `json:"type,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	AllOf []SchemaOrRefable `json:"allOf,omitempty"`
+	AllOf []Schema `json:"allOf,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	OneOf []SchemaOrRefable `json:"oneOf,omitempty"`
+	OneOf []Schema `json:"oneOf,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	AnyOf []SchemaOrRefable `json:"anyOf,omitempty"`
+	AnyOf []Schema `json:"anyOf,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	Not *SchemaOrRefable `json:"not,omitempty"`
+	Not *Schema `json:"not,omitempty"`
 
 	// Value MUST be an object and not an array.
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
 	// items MUST be present if the type is array.
-	Items *SchemaOrRefable `json:"items,omitempty"`
+	Items *Schema `json:"items,omitempty"`
 
 	// Property definitions MUST be a Schema Object and not a standard JSON Schema (inline or referenced).
-	Properties map[string]SchemaOrRefable `json:"properties,omitempty"`
+	Properties map[string]Schema `json:"properties,omitempty"`
 
 	// Value can be boolean or object.
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	AdditionalProperties *SchemaOrRefable `json:"additionalProperties,omitempty"`
+	AdditionalProperties *Schema `json:"additionalProperties,omitempty"`
 
 	// CommonMark syntax MAY be used for rich text representation.
 	Description string `json:"description,omitempty"`

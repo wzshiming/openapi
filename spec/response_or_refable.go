@@ -7,24 +7,24 @@ import (
 	"errors"
 )
 
-// ResponseOrRefable It's the Union type of Response and Refable
-type ResponseOrRefable struct {
+// Response It's the Union type of response and Refable
+type Response struct {
 	Refable
-	Response
+	response
 }
 
-// MarshalJSON returns m as the JSON encoding of Response or Refable.
-func (m ResponseOrRefable) MarshalJSON() ([]byte, error) {
+// MarshalJSON returns m as the JSON encoding of response or Refable.
+func (m Response) MarshalJSON() ([]byte, error) {
 	if m.Ref != "" {
 		return json.Marshal(m.Refable)
 	}
-	return json.Marshal(m.Response)
+	return json.Marshal(m.response)
 }
 
-// UnmarshalJSON sets Response or Refable to data.
-func (m *ResponseOrRefable) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON sets response or Refable to data.
+func (m *Response) UnmarshalJSON(data []byte) error {
 	if m == nil {
-		return errors.New("spec.ResponseOrRefable: UnmarshalJSON on nil pointer")
+		return errors.New("spec.Response: UnmarshalJSON on nil pointer")
 	}
 	if len(data) == 0 {
 		return nil
@@ -36,5 +36,5 @@ func (m *ResponseOrRefable) UnmarshalJSON(data []byte) error {
 	if m.Ref != "" {
 		return nil
 	}
-	return json.Unmarshal(data, &m.Response)
+	return json.Unmarshal(data, &m.response)
 }

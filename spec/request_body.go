@@ -1,7 +1,7 @@
 package spec
 
-// RequestBody Describes a single request body.
-type RequestBody struct {
+// requestBody Describes a single request body.
+type requestBody struct {
 
 	// A brief description of the request body.
 	// This could contain examples of use.

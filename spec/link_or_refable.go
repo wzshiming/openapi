@@ -7,24 +7,24 @@ import (
 	"errors"
 )
 
-// LinkOrRefable It's the Union type of Link and Refable
-type LinkOrRefable struct {
+// Link It's the Union type of link and Refable
+type Link struct {
 	Refable
-	Link
+	link
 }
 
-// MarshalJSON returns m as the JSON encoding of Link or Refable.
-func (m LinkOrRefable) MarshalJSON() ([]byte, error) {
+// MarshalJSON returns m as the JSON encoding of link or Refable.
+func (m Link) MarshalJSON() ([]byte, error) {
 	if m.Ref != "" {
 		return json.Marshal(m.Refable)
 	}
-	return json.Marshal(m.Link)
+	return json.Marshal(m.link)
 }
 
-// UnmarshalJSON sets Link or Refable to data.
-func (m *LinkOrRefable) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON sets link or Refable to data.
+func (m *Link) UnmarshalJSON(data []byte) error {
 	if m == nil {
-		return errors.New("spec.LinkOrRefable: UnmarshalJSON on nil pointer")
+		return errors.New("spec.Link: UnmarshalJSON on nil pointer")
 	}
 	if len(data) == 0 {
 		return nil
@@ -36,5 +36,5 @@ func (m *LinkOrRefable) UnmarshalJSON(data []byte) error {
 	if m.Ref != "" {
 		return nil
 	}
-	return json.Unmarshal(data, &m.Link)
+	return json.Unmarshal(data, &m.link)
 }

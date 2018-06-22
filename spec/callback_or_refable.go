@@ -7,24 +7,24 @@ import (
 	"errors"
 )
 
-// CallbackOrRefable It's the Union type of Callback and Refable
-type CallbackOrRefable struct {
+// Callback It's the Union type of callback and Refable
+type Callback struct {
 	Refable
-	Callback
+	callback
 }
 
-// MarshalJSON returns m as the JSON encoding of Callback or Refable.
-func (m CallbackOrRefable) MarshalJSON() ([]byte, error) {
+// MarshalJSON returns m as the JSON encoding of callback or Refable.
+func (m Callback) MarshalJSON() ([]byte, error) {
 	if m.Ref != "" {
 		return json.Marshal(m.Refable)
 	}
-	return json.Marshal(m.Callback)
+	return json.Marshal(m.callback)
 }
 
-// UnmarshalJSON sets Callback or Refable to data.
-func (m *CallbackOrRefable) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON sets callback or Refable to data.
+func (m *Callback) UnmarshalJSON(data []byte) error {
 	if m == nil {
-		return errors.New("spec.CallbackOrRefable: UnmarshalJSON on nil pointer")
+		return errors.New("spec.Callback: UnmarshalJSON on nil pointer")
 	}
 	if len(data) == 0 {
 		return nil
@@ -36,5 +36,5 @@ func (m *CallbackOrRefable) UnmarshalJSON(data []byte) error {
 	if m.Ref != "" {
 		return nil
 	}
-	return json.Unmarshal(data, &m.Callback)
+	return json.Unmarshal(data, &m.callback)
 }

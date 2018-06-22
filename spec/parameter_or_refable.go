@@ -7,24 +7,24 @@ import (
 	"errors"
 )
 
-// ParameterOrRefable It's the Union type of Parameter and Refable
-type ParameterOrRefable struct {
+// Parameter It's the Union type of parameter and Refable
+type Parameter struct {
 	Refable
-	Parameter
+	parameter
 }
 
-// MarshalJSON returns m as the JSON encoding of Parameter or Refable.
-func (m ParameterOrRefable) MarshalJSON() ([]byte, error) {
+// MarshalJSON returns m as the JSON encoding of parameter or Refable.
+func (m Parameter) MarshalJSON() ([]byte, error) {
 	if m.Ref != "" {
 		return json.Marshal(m.Refable)
 	}
-	return json.Marshal(m.Parameter)
+	return json.Marshal(m.parameter)
 }
 
-// UnmarshalJSON sets Parameter or Refable to data.
-func (m *ParameterOrRefable) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON sets parameter or Refable to data.
+func (m *Parameter) UnmarshalJSON(data []byte) error {
 	if m == nil {
-		return errors.New("spec.ParameterOrRefable: UnmarshalJSON on nil pointer")
+		return errors.New("spec.Parameter: UnmarshalJSON on nil pointer")
 	}
 	if len(data) == 0 {
 		return nil
@@ -36,5 +36,5 @@ func (m *ParameterOrRefable) UnmarshalJSON(data []byte) error {
 	if m.Ref != "" {
 		return nil
 	}
-	return json.Unmarshal(data, &m.Parameter)
+	return json.Unmarshal(data, &m.parameter)
 }

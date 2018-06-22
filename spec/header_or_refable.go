@@ -7,24 +7,24 @@ import (
 	"errors"
 )
 
-// HeaderOrRefable It's the Union type of Header and Refable
-type HeaderOrRefable struct {
+// Header It's the Union type of header and Refable
+type Header struct {
 	Refable
-	Header
+	header
 }
 
-// MarshalJSON returns m as the JSON encoding of Header or Refable.
-func (m HeaderOrRefable) MarshalJSON() ([]byte, error) {
+// MarshalJSON returns m as the JSON encoding of header or Refable.
+func (m Header) MarshalJSON() ([]byte, error) {
 	if m.Ref != "" {
 		return json.Marshal(m.Refable)
 	}
-	return json.Marshal(m.Header)
+	return json.Marshal(m.header)
 }
 
-// UnmarshalJSON sets Header or Refable to data.
-func (m *HeaderOrRefable) UnmarshalJSON(data []byte) error {
+// UnmarshalJSON sets header or Refable to data.
+func (m *Header) UnmarshalJSON(data []byte) error {
 	if m == nil {
-		return errors.New("spec.HeaderOrRefable: UnmarshalJSON on nil pointer")
+		return errors.New("spec.Header: UnmarshalJSON on nil pointer")
 	}
 	if len(data) == 0 {
 		return nil
@@ -36,5 +36,5 @@ func (m *HeaderOrRefable) UnmarshalJSON(data []byte) error {
 	if m.Ref != "" {
 		return nil
 	}
-	return json.Unmarshal(data, &m.Header)
+	return json.Unmarshal(data, &m.header)
 }

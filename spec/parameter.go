@@ -1,6 +1,6 @@
 package spec
 
-// Parameter Describes a single operation parameter.
+// parameter Describes a single operation parameter.
 // A unique parameter is defined by a combination of a name and location.
 // Parameter Locations
 // There are four possible parameter locations specified by the in field:
@@ -12,7 +12,7 @@ package spec
 // header - Custom headers that are expected as part of the request.
 // Note that RFC7230 states header names are case insensitive.
 // cookie - Used to pass a specific cookie value to the API.
-type Parameter struct {
+type parameter struct {
 
 	// REQUIRED.
 	// The name of the parameter.
@@ -66,7 +66,7 @@ type Parameter struct {
 	AllowReserved bool `json:"allowReserved,omitempty"`
 
 	// The schema defining the type used for the parameter.
-	Schema SchemaOrRefable `json:"schema,omitempty"`
+	Schema Schema `json:"schema,omitempty"`
 
 	// Example of the media type.
 	// The example SHOULD match the specified schema and encoding properties if present.
@@ -79,7 +79,7 @@ type Parameter struct {
 	// Each example SHOULD contain a value in the correct format as specified in the parameter encoding.
 	// The examples field is mutually exclusive of the example field.
 	// Furthermore, if referencing a schema which contains an example, the examples value SHALL override the example provided by the schema.
-	Examples map[string]ExampleOrRefable `json:"examples,omitempty"`
+	Examples map[string]Example `json:"examples,omitempty"`
 
 	// For more complex scenarios, the content property can define the media type and schema of the parameter.
 	// A parameter MUST contain either a schema property, or a content property, but not both.

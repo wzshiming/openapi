@@ -1,4 +1,4 @@
 package spec
 
-// Callback
-type Callback map[Expressions]PathItem
+// callback
+type callback map[Expressions]PathItem
