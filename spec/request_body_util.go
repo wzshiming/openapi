@@ -49,10 +49,3 @@ func NewRequestBody(typ string, schema *SchemaOrRefable) *RequestBodyOrRefable {
 	}
 	return rb
 }
-
-// RefRequestBody creates a request body
-func RefRequestBody(ref string) *RequestBodyOrRefable {
-	rb := &RequestBodyOrRefable{}
-	rb.Ref = ref
-	return rb
-}

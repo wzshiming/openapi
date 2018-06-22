@@ -124,10 +124,3 @@ func ComposedSchema(schemas ...SchemaOrRefable) *SchemaOrRefable {
 	so.AllOf = schemas
 	return so
 }
-
-// RefProperty creates a ref property
-func RefProperty(ref string) *SchemaOrRefable {
-	so := &SchemaOrRefable{}
-	so.Ref = ref
-	return so
-}

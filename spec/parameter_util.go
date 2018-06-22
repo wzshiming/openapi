@@ -38,10 +38,3 @@ func CookieParam(name string) *ParameterOrRefable {
 	p.Name = name
 	return p
 }
-
-// RefParam creates a parameter that's a json reference
-func RefParam(ref string) *ParameterOrRefable {
-	p := &ParameterOrRefable{}
-	p.Ref = ref
-	return p
-}
