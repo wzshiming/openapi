@@ -52,7 +52,7 @@ import (
 // {{ .Dist }} It's the Union type of {{ .Src }} and Refable
 type {{ .Dist }} struct {
 	Refable
-	{{ .Src }} *{{ .Src }}
+	{{ .Src }}
 }
 
 // MarshalJSON returns m as the JSON encoding of {{ .Src }} or Refable.
