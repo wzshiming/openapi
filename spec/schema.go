@@ -71,7 +71,7 @@ type Schema struct {
 
 	// Value MUST be a string.
 	// Multiple types via an array are not supported.
-	Type StringOrArray `json:"type,omitempty"`
+	Type *string `json:"type,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
 	AllOf []SchemaOrRefable `json:"allOf,omitempty"`
@@ -88,7 +88,7 @@ type Schema struct {
 	// Value MUST be an object and not an array.
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
 	// items MUST be present if the type is array.
-	Items SchemaOrArray `json:"items,omitempty"`
+	Items SchemaOrRefable `json:"items,omitempty"`
 
 	// Property definitions MUST be a Schema Object and not a standard JSON Schema (inline or referenced).
 	Properties map[string]SchemaOrRefable `json:"properties,omitempty"`

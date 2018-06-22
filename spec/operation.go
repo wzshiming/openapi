@@ -54,7 +54,7 @@ type Operation struct {
 	// Only one of the security requirement objects need to be satisfied to authorize a request.
 	// This definition overrides any declared top-level security.
 	// To remove a top-level security declaration, an empty array can be used.
-	Security SecurityRequirements `json:"security,omitempty"`
+	Security map[string]SecurityRequirement `json:"security,omitempty"`
 
 	// An alternative server array to service this operation.
 	// If an alternative server object is specified at the Path Item Object or Root level, it will be overridden by this value.
