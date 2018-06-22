@@ -66,7 +66,7 @@ type parameter struct {
 	AllowReserved bool `json:"allowReserved,omitempty"`
 
 	// The schema defining the type used for the parameter.
-	Schema Schema `json:"schema,omitempty"`
+	Schema *Schema `json:"schema,omitempty"`
 
 	// Example of the media type.
 	// The example SHOULD match the specified schema and encoding properties if present.
