@@ -7,6 +7,15 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
+func JSON2YAML(d []byte) ([]byte, error) {
+	var v interface{}
+	err := yaml.Unmarshal(d, &v)
+	if err != nil {
+		return nil, err
+	}
+	return yaml.Marshal(v)
+}
+
 func YAML2JSON(d []byte) ([]byte, error) {
 	ms := yaml.MapSlice{}
 	err := yaml.Unmarshal(d, &ms)
@@ -14,23 +23,23 @@ func YAML2JSON(d []byte) ([]byte, error) {
 		return nil, err
 	}
 
-	v := _YAML2JSON(ms)
-	return json.Marshal(v)
+	v := yaml2json(ms)
+	return json.MarshalIndent(v, "", "  ")
 }
 
-func _YAML2JSON(v interface{}) interface{} {
+func yaml2json(v interface{}) interface{} {
 	switch t := v.(type) {
 	case yaml.MapSlice:
 		m := map[string]interface{}{}
 		for _, v := range t {
 			key := fmt.Sprint(v.Key)
-			val := _YAML2JSON(v.Value)
+			val := yaml2json(v.Value)
 			m[key] = val
 		}
 		return m
 	case []interface{}:
 		for i, v := range t {
-			t[i] = _YAML2JSON(v)
+			t[i] = yaml2json(v)
 		}
 		return t
 	default:
