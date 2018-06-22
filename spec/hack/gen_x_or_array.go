@@ -49,21 +49,15 @@ import (
 	"encoding/json"
 )
 
-// {{ .Dist }} It's the Union type of {{ .Src }} and Refable
-type {{ .Dist }} struct {
-	Refable
-	{{ .Src }} *{{ .Src }}
-}
+// {{ .Dist }} It's the Union type of {{ .Src }} and Array
+type {{ .Dist }} []{{ .Src }}
 
-// MarshalJSON returns m as the JSON encoding of {{ .Src }} or Refable.
+// MarshalJSON returns m as the JSON encoding of m.
 func (m {{ .Dist }}) MarshalJSON() ([]byte, error) {
-	if m.Ref != "" {
-		return json.Marshal(m.Refable)
-	}
-	return json.Marshal(m.{{ .Src }})
+	return json.Marshal([]{{ .Src }}(m))
 }
 
-// UnmarshalJSON sets {{ .Src }} or Refable to data.
+// UnmarshalJSON sets *m to a copy of data.
 func (m *{{ .Dist }}) UnmarshalJSON(data []byte) error {
 	if m == nil {
 		return errors.New("spec.{{ .Dist }}: UnmarshalJSON on nil pointer")
@@ -71,14 +65,17 @@ func (m *{{ .Dist }}) UnmarshalJSON(data []byte) error {
 	if len(data) == 0 {
 		return nil
 	}
-	err := json.Unmarshal(data, &m.Refable)
-	if err != nil {
-		return err
-	}
-	if m.Ref != "" {
+	if data[0] != '[' {
+		var s {{ .Src }}
+		err := json.Unmarshal(data, &s)
+		if err != nil {
+			return err
+		}
+		*m = []{{ .Src }}{s}
 		return nil
 	}
-	return json.Unmarshal(data, &m.{{ .Src }})
+
+	return json.Unmarshal(data, []{{ .Src }}(*m))
 }
 
 `
