@@ -5,7 +5,7 @@ type ExternalDocumentation struct {
 
 	// A short description of the target documentation.
 	// CommonMark syntax MAY be used for rich text representation.
-	Description string `json:"description,omitempty"`
+	Description string `json:"description"`
 
 	// REQUIRED.
 	// The URL for the target documentation.

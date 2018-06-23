@@ -7,7 +7,7 @@ type Info struct {
 
 	// REQUIRED.
 	// The title of the application.
-	Title string `json:"title,omitempty"`
+	Title string `json:"title"`
 
 	// A short description of the application.
 	// CommonMark syntax MAY be used for rich text representation.
@@ -25,5 +25,5 @@ type Info struct {
 
 	// REQUIRED.
 	// The version of the OpenAPI document (which is distinct from the OpenAPI Specification version or the API implementation version).
-	Version string `json:"version,omitempty"`
+	Version string `json:"version"`
 }

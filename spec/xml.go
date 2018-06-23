@@ -9,7 +9,7 @@ type XML struct {
 	// When defined within items, it will affect the name of the individual XML elements within the list.
 	// When defined alongside type being array (outside the items), it will affect the wrapping element and only if wrapped is true.
 	// If wrapped is false, it will be ignored.
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 
 	// The URI of the namespace definition.
 	// Value MUST be in the form of an absolute URI.

@@ -6,7 +6,7 @@ type securityScheme struct {
 	// Any	REQUIRED.
 	// The type of the security scheme.
 	// Valid values are "apiKey", "http", "oauth2", "openIdConnect".
-	Type string `json:"type,omitempty"`
+	Type string `json:"type"`
 
 	// Any	A short description for security scheme.
 	// CommonMark syntax MAY be used for rich text representation.

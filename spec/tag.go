@@ -6,7 +6,7 @@ type Tag struct {
 
 	// REQUIRED.
 	// The name of the tag.
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 
 	// A short description for the tag.
 	// CommonMark syntax MAY be used for rich text representation.

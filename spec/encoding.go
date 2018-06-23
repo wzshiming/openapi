@@ -7,7 +7,7 @@ type Encoding struct {
 	// Default value depends on the property type: for string with format being binary â€“ application/octet-stream;
 	// for other primitive types â€“ text/plain; for object - application/json; for array â€“ the default is defined based on the inner type.
 	// The value can be a specific media type (e.g. application/json), a wildcard media type (e.g. image/*), or a comma-separated list of the two types.
-	ContentType string `json:"contentType,omitempty"`
+	ContentType string `json:"contentType"`
 
 	// A map allowing additional information to be provided as headers, for example Content-Disposition.
 	// Content-Type is described separately and SHALL be ignored in this section.

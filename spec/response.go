@@ -17,7 +17,7 @@ type response struct {
 	// The key is a media type or media type range and the value describes it.
 	// For responses that match multiple keys, only the most specific key is applicable.
 	// e.g. text/plain overrides text/*
-	Content map[string]*MediaType `json:"content,omitempty"`
+	Content map[string]*MediaType `json:"content"`
 
 	// A map of operations links that can be followed from the response.
 	// The key of the map is a short name for the link, following the naming constraints of the names for Component Objects.

@@ -21,12 +21,12 @@ type parameter struct {
 	// See Path Templating for further information.
 	// If in is "header" and the name field is "Accept", "Content-Type" or "Authorization", the parameter definition SHALL be ignored.
 	// For all other cases, the name corresponds to the parameter name used by the in property.
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 
 	// REQUIRED.
 	// The location of the parameter.
 	// Possible values are "query", "header", "path" or "cookie".
-	In string `json:"in,omitempty"`
+	In string `json:"in"`
 
 	// A brief description of the parameter.
 	// This could contain examples of use.

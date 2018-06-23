@@ -71,7 +71,7 @@ type schema struct {
 
 	// Value MUST be a string.
 	// Multiple types via an array are not supported.
-	Type string `json:"type,omitempty"`
+	Type string `json:"type"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
 	AllOf []*Schema `json:"allOf,omitempty"`
