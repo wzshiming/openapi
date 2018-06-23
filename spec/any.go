@@ -5,6 +5,7 @@ import (
 	"errors"
 )
 
+// NewAny Create an any
 func NewAny(v interface{}) Any {
 	s, _ := json.Marshal(v)
 	return Any(s)

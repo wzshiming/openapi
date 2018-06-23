@@ -21,7 +21,7 @@ func RefParameter(ref string) *Parameter {
 	return p
 }
 
-// RefExampley creates a ref example
+// RefExample creates a ref example
 func RefExample(ref string) *Example {
 	rb := &Example{}
 	rb.Ref = "#/components/examples/" + ref

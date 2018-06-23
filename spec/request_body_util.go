@@ -1,5 +1,7 @@
 package spec
 
+// Media type definitions are spread across several resources. The media type definitions SHOULD be in compliance with RFC6838.
+// Some examples of possible media type definitions:
 const (
 	MimeJSON        = "application/json"
 	MimeXML         = "application/xml"

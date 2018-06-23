@@ -7,15 +7,15 @@ const (
 )
 
 // BasicAuth creates a basic auth security scheme
-func BasicAuth() *securityScheme {
-	ss := &securityScheme{}
+func BasicAuth() *SecurityScheme {
+	ss := &SecurityScheme{}
 	ss.Type = basic
 	return ss
 }
 
 // APIKeyAuth creates an api key auth security scheme
-func APIKeyAuth(fieldName, valueSource string) *securityScheme {
-	ss := &securityScheme{}
+func APIKeyAuth(fieldName, valueSource string) *SecurityScheme {
+	ss := &SecurityScheme{}
 	ss.Type = apiKey
 	ss.Name = fieldName
 	ss.In = valueSource
@@ -23,8 +23,8 @@ func APIKeyAuth(fieldName, valueSource string) *securityScheme {
 }
 
 // OAuth2Implicit creates an implicit flow oauth2 security scheme
-func OAuth2Implicit(authorizationURL string) *securityScheme {
-	ss := &securityScheme{}
+func OAuth2Implicit(authorizationURL string) *SecurityScheme {
+	ss := &SecurityScheme{}
 	ss.Flows = &OAuthFlows{}
 	ss.Type = oauth2
 	ss.Flows.Implicit.AuthorizationURL = authorizationURL
@@ -32,8 +32,8 @@ func OAuth2Implicit(authorizationURL string) *securityScheme {
 }
 
 // OAuth2Password creates a password flow oauth2 security scheme
-func OAuth2Password(tokenURL string) *securityScheme {
-	ss := &securityScheme{}
+func OAuth2Password(tokenURL string) *SecurityScheme {
+	ss := &SecurityScheme{}
 	ss.Flows = &OAuthFlows{}
 	ss.Type = oauth2
 	ss.Flows.Password.TokenURL = tokenURL
@@ -41,8 +41,8 @@ func OAuth2Password(tokenURL string) *securityScheme {
 }
 
 // OAuth2AuthorizationCode creates an application flow oauth2 security scheme
-func OAuth2AuthorizationCode(tokenURL string) *securityScheme {
-	ss := &securityScheme{}
+func OAuth2AuthorizationCode(tokenURL string) *SecurityScheme {
+	ss := &SecurityScheme{}
 	ss.Flows = &OAuthFlows{}
 	ss.Type = oauth2
 	ss.Flows.AuthorizationCode.TokenURL = tokenURL
@@ -50,8 +50,8 @@ func OAuth2AuthorizationCode(tokenURL string) *securityScheme {
 }
 
 // OAuth2ClientCredentials creates an access token flow oauth2 security scheme
-func OAuth2ClientCredentials(authorizationURL, tokenURL string) *securityScheme {
-	ss := &securityScheme{}
+func OAuth2ClientCredentials(authorizationURL, tokenURL string) *SecurityScheme {
+	ss := &SecurityScheme{}
 	ss.Flows = &OAuthFlows{}
 	ss.Type = oauth2
 	ss.Flows.ClientCredentials.AuthorizationURL = authorizationURL

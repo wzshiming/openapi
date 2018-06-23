@@ -7,25 +7,25 @@ func (h *Header) WithDescription(description string) *Header {
 }
 
 // WithName a fluent builder method to override the name of the parameter
-func (p *Header) WithName(name string) *Header {
-	p.Name = name
-	return p
+func (h *Header) WithName(name string) *Header {
+	h.Name = name
+	return h
 }
 
 // AllowsEmptyValues flags this parameter as being ok with empty values
-func (p *Header) AllowsEmptyValues() *Header {
-	p.AllowEmptyValue = true
-	return p
+func (h *Header) AllowsEmptyValues() *Header {
+	h.AllowEmptyValue = true
+	return h
 }
 
 // NoEmptyValues flags this parameter as not liking empty values
-func (p *Header) NoEmptyValues() *Header {
-	p.AllowEmptyValue = false
-	return p
+func (h *Header) NoEmptyValues() *Header {
+	h.AllowEmptyValue = false
+	return h
 }
 
 // AsOptional flags this parameter as optional
-func (p *Header) AsOptional() *Header {
-	p.Required = false
-	return p
+func (h *Header) AsOptional() *Header {
+	h.Required = false
+	return h
 }

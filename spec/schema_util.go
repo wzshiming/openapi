@@ -2,6 +2,10 @@ package spec
 
 import "time"
 
+// Primitive data types in the OAS are based on the types supported by the JSON Schema Specification Wright Draft 00.
+// Note that integer as a type is also supported and is defined as a JSON number without a fraction or exponent part.
+// null is not supported as a type (see nullable for an alternative solution).
+// Models are defined using the Schema Object, which is an extended subset of JSON Schema Specification Wright Draft 00.
 const (
 	TypeBoolean = "boolean"
 	TypeNumber  = "number"

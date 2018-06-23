@@ -5,6 +5,7 @@ import (
 	"errors"
 )
 
+// AnyOrExpressions It's the Union type of any and expressions
 type AnyOrExpressions struct {
 	Expressions Expressions
 	Any         Any
