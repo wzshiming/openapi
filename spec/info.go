@@ -27,30 +27,3 @@ type Info struct {
 	// The version of the OpenAPI document (which is distinct from the OpenAPI Specification version or the API implementation version).
 	Version string `json:"version,omitempty"`
 }
-
-// Contact information for the exposed API.
-type Contact struct {
-
-	// The identifying name of the contact person/organization.
-	Name string `json:"name,omitempty"`
-
-	// The URL pointing to the contact information.
-	// MUST be in the format of a URL.
-	URL string `json:"url,omitempty"`
-
-	// The email address of the contact person/organization.
-	// MUST be in the format of an email address.
-	Email string `json:"email,omitempty"`
-}
-
-// License information for the exposed API.
-type License struct {
-
-	// REQUIRED.
-	// The license name used for the API.
-	Name string `json:"name,omitempty"`
-
-	// A URL to the license used for the API.
-	// MUST be in the format of a URL.
-	URL string `json:"url,omitempty"`
-}
