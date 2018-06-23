@@ -119,7 +119,7 @@ func ArrayProperty(items *Schema) *Schema {
 }
 
 // ComposedSchema creates a schema with allOf
-func ComposedSchema(schemas ...Schema) *Schema {
+func ComposedSchema(schemas ...*Schema) *Schema {
 	so := &Schema{}
 	so.AllOf = schemas
 	return so
@@ -138,22 +138,22 @@ func (s *Schema) WithDescription(description string) *Schema {
 }
 
 // WithProperties sets the properties for this schema
-func (s *Schema) WithProperties(schemas map[string]Schema) *Schema {
+func (s *Schema) WithProperties(schemas map[string]*Schema) *Schema {
 	s.Properties = schemas
 	return s
 }
 
 // WithProperty sets a property on this schema
-func (s *Schema) WithProperty(name string, schema Schema) *Schema {
+func (s *Schema) WithProperty(name string, schema *Schema) *Schema {
 	if s.Properties == nil {
-		s.Properties = make(map[string]Schema)
+		s.Properties = make(map[string]*Schema)
 	}
 	s.Properties[name] = schema
 	return s
 }
 
 // WithAllOf sets the all of property
-func (s *Schema) WithAllOf(schemas ...Schema) *Schema {
+func (s *Schema) WithAllOf(schemas ...*Schema) *Schema {
 	s.AllOf = schemas
 	return s
 }
@@ -264,7 +264,7 @@ func (s *Schema) AllowDuplicates() *Schema {
 }
 
 // AddToAllOf adds a schema to the allOf property
-func (s *Schema) AddToAllOf(schemas ...Schema) *Schema {
+func (s *Schema) AddToAllOf(schemas ...*Schema) *Schema {
 	s.AllOf = append(s.AllOf, schemas...)
 	return s
 }

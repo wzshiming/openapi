@@ -15,7 +15,7 @@ type Server struct {
 
 	// A map between a variable name and its value.
 	// The value is used for substitution in the server's URL template.
-	Variables map[string]ServerVariable `json:"variables,omitempty"`
+	Variables map[string]*ServerVariable `json:"variables,omitempty"`
 }
 
 // ServerVariable An object representing a Server Variable for server URL template substitution.

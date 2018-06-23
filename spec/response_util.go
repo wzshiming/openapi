@@ -12,9 +12,9 @@ func (r *Response) AddHeader(name string, header *Header) *Response {
 		return r.RemoveHeader(name)
 	}
 	if r.Headers == nil {
-		r.Headers = map[string]Header{}
+		r.Headers = map[string]*Header{}
 	}
-	r.Headers[name] = *header
+	r.Headers[name] = header
 	return r
 }
 
@@ -30,9 +30,9 @@ func (r *Response) AddContent(name string, content *MediaType) *Response {
 		return r.RemoveHeader(name)
 	}
 	if r.Content == nil {
-		r.Content = map[string]MediaType{}
+		r.Content = map[string]*MediaType{}
 	}
-	r.Content[name] = *content
+	r.Content[name] = content
 	return r
 }
 
@@ -48,9 +48,9 @@ func (r *Response) AddLink(name string, link *Link) *Response {
 		return r.RemoveHeader(name)
 	}
 	if r.Links == nil {
-		r.Links = map[string]Link{}
+		r.Links = map[string]*Link{}
 	}
-	r.Links[name] = *link
+	r.Links[name] = link
 	return r
 }
 

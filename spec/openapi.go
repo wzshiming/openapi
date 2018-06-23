@@ -16,7 +16,7 @@ type OpenAPI struct {
 
 	// An array of Server Objects, which provide connectivity information to a target server.
 	// If the servers property is not provided, or is an empty array, the default value would be a Server Object with a url value of /.
-	Servers []Server `json:"servers,omitempty"`
+	Servers []*Server `json:"servers,omitempty"`
 
 	// REQUIRED.
 	// The available paths and operations for the API.
@@ -36,7 +36,7 @@ type OpenAPI struct {
 	// Not all tags that are used by the Operation Object must be declared.
 	// The tags that are not declared MAY be organized randomly or based on the tools' logic.
 	// Each tag name in the list MUST be unique.
-	Tags []Tag `json:"tags,omitempty"`
+	Tags []*Tag `json:"tags,omitempty"`
 
 	// Additional extern
 	ExternalDocs *ExternalDocumentation `json:"externalDocs,omitempty"`

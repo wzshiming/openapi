@@ -42,8 +42,8 @@ func FormDataRequestBody(schema *Schema) *RequestBody {
 // NewRequestBody creates a request body
 func NewRequestBody(typ string, schema *Schema) *RequestBody {
 	rb := &RequestBody{}
-	rb.Content = map[string]MediaType{
-		typ: MediaType{
+	rb.Content = map[string]*MediaType{
+		typ: &MediaType{
 			Schema: schema,
 		},
 	}

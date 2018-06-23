@@ -79,7 +79,7 @@ type parameter struct {
 	// Each example SHOULD contain a value in the correct format as specified in the parameter encoding.
 	// The examples field is mutually exclusive of the example field.
 	// Furthermore, if referencing a schema which contains an example, the examples value SHALL override the example provided by the schema.
-	Examples map[string]Example `json:"examples,omitempty"`
+	Examples map[string]*Example `json:"examples,omitempty"`
 
 	// For more complex scenarios, the content property can define the media type and schema of the parameter.
 	// A parameter MUST contain either a schema property, or a content property, but not both.
@@ -88,5 +88,5 @@ type parameter struct {
 	// A map containing the representations for the parameter.
 	// The key is the media type and the value describes it.
 	// The map MUST only contain one entry.
-	Content map[string]MediaType `json:"content,omitempty"`
+	Content map[string]*MediaType `json:"content,omitempty"`
 }

@@ -3,7 +3,7 @@ package spec
 // Paths Holds the relative paths to the individual endpoints and their operations.
 // The path is appended to the URL from the Server Object in order to construct the full URL.
 // The Paths MAY be empty, due to ACL constraints.
-type Paths map[string]PathItem
+type Paths map[string]*PathItem
 
 // PathItem Describes the operations available on a single path.
 // A Path Item MAY be empty, due to ACL constraints.
@@ -43,12 +43,12 @@ type PathItem struct {
 	Trace *Operation `json:"trace,omitempty"`
 
 	// An alternative server array to service all operations in this path.
-	Servers []Server `json:"servers,omitempty"`
+	Servers []*Server `json:"servers,omitempty"`
 
 	// A list of parameters that are applicable for all the operations described under this path.
 	// These parameters can be overridden at the operation level, but cannot be removed there.
 	// The list MUST NOT include duplicated parameters.
 	// A unique parameter is defined by a combination of a name and location.
 	// The list can use the Reference Object to link to parameters that are defined at the OpenAPI Object's components/parameters.
-	Parameters []Parameter `json:"parameters,omitempty"`
+	Parameters []*Parameter `json:"parameters,omitempty"`
 }

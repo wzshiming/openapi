@@ -5,29 +5,29 @@ package spec
 type Components struct {
 
 	// An object to hold reusable Schema Objects.
-	Schemas map[string]Schema `json:"schemas,omitempty"`
+	Schemas map[string]*Schema `json:"schemas,omitempty"`
 
 	// An object to hold reusable Response Objects.
-	Responses map[string]Response `json:"responses,omitempty"`
+	Responses map[string]*Response `json:"responses,omitempty"`
 
 	// An object to hold reusable Parameter Objects.
-	Parameters map[string]Parameter `json:"parameters,omitempty"`
+	Parameters map[string]*Parameter `json:"parameters,omitempty"`
 
 	// An object to hold reusable Example Objects.
-	Examples map[string]Example `json:"examples,omitempty"`
+	Examples map[string]*Example `json:"examples,omitempty"`
 
 	// An object to hold reusable Request Body Objects.
-	RequestBodies map[string]RequestBody `json:"requestBodies,omitempty"`
+	RequestBodies map[string]*RequestBody `json:"requestBodies,omitempty"`
 
 	// An object to hold reusable Header Objects.
-	Headers map[string]Header `json:"headers,omitempty"`
+	Headers map[string]*Header `json:"headers,omitempty"`
 
 	// An object to hold reusable Security Scheme Objects.
-	SecuritySchemes map[string]SecurityScheme `json:"securitySchemes,omitempty"`
+	SecuritySchemes map[string]*SecurityScheme `json:"securitySchemes,omitempty"`
 
 	// An object to hold reusable Link Objects.
-	Links map[string]Link `json:"links,omitempty"`
+	Links map[string]*Link `json:"links,omitempty"`
 
 	// An object to hold reusable Callback Objects.
-	Callbacks map[string]Callback `json:"callbacks,omitempty"`
+	Callbacks map[string]*Callback `json:"callbacks,omitempty"`
 }

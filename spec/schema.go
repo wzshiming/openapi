@@ -74,13 +74,13 @@ type schema struct {
 	Type string `json:"type,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	AllOf []Schema `json:"allOf,omitempty"`
+	AllOf []*Schema `json:"allOf,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	OneOf []Schema `json:"oneOf,omitempty"`
+	OneOf []*Schema `json:"oneOf,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
-	AnyOf []Schema `json:"anyOf,omitempty"`
+	AnyOf []*Schema `json:"anyOf,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
 	Not *Schema `json:"not,omitempty"`
@@ -91,7 +91,7 @@ type schema struct {
 	Items *Schema `json:"items,omitempty"`
 
 	// Property definitions MUST be a Schema Object and not a standard JSON Schema (inline or referenced).
-	Properties map[string]Schema `json:"properties,omitempty"`
+	Properties map[string]*Schema `json:"properties,omitempty"`
 
 	// Value can be boolean or object.
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
