@@ -1,5 +1,46 @@
 package spec
 
+// JSONResponse creates a request body
+func JSONResponse(schema *Schema) *Response {
+	return NewResponse(MimeJSON, schema)
+}
+
+// XMLResponse creates a request body
+func XMLResponse(schema *Schema) *Response {
+	return NewResponse(MimeXML, schema)
+}
+
+// TextPlainResponse creates a request body
+func TextPlainResponse(schema *Schema) *Response {
+	return NewResponse(MimeTextPlain, schema)
+}
+
+// OctetStreamResponse creates a request body
+func OctetStreamResponse(schema *Schema) *Response {
+	return NewResponse(MimeOctetStream, schema)
+}
+
+// URLEncodedResponse creates a request body
+func URLEncodedResponse(schema *Schema) *Response {
+	return NewResponse(MimeURLEncoded, schema)
+}
+
+// FormDataResponse creates a request body
+func FormDataResponse(schema *Schema) *Response {
+	return NewResponse(MimeFormData, schema)
+}
+
+// NewResponse creates a response
+func NewResponse(typ string, schema *Schema) *Response {
+	rb := &Response{}
+	rb.Content = map[string]*MediaType{
+		typ: &MediaType{
+			Schema: schema,
+		},
+	}
+	return rb
+}
+
 // WithDescription sets the description on this response, allows for chaining
 func (r *Response) WithDescription(description string) *Response {
 	r.Description = description
