@@ -1,8 +1,14 @@
 package spec
 
 import (
+	"encoding/json"
 	"errors"
 )
+
+func NewAny(v interface{}) Any {
+	s, _ := json.Marshal(v)
+	return Any(s)
+}
 
 // Any is a raw encoded JSON value.
 // It implements Marshaler and Unmarshaler and can

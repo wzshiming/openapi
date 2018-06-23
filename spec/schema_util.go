@@ -1,5 +1,7 @@
 package spec
 
+import "time"
+
 const (
 	TypeBoolean = "boolean"
 	TypeNumber  = "number"
@@ -8,6 +10,8 @@ const (
 	TypeObject  = "object"
 	TypeArray   = "array"
 )
+
+var timeExample = NewAny(time.RFC3339)
 
 // BooleanProperty creates a boolean property
 func BooleanProperty() *Schema {
@@ -86,12 +90,12 @@ func PasswordProperty() *Schema {
 
 // DateProperty creates a date property
 func DateProperty() *Schema {
-	return StrFmtProperty("data")
+	return StrFmtProperty("data").WithExample(timeExample)
 }
 
 // DateTimeProperty creates a date time property
 func DateTimeProperty() *Schema {
-	return StrFmtProperty("data-time")
+	return StrFmtProperty("data-time").WithExample(timeExample)
 }
 
 // StrFmtProperty creates a property for the named string format
