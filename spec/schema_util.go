@@ -26,49 +26,47 @@ func BooleanProperty() *Schema {
 
 // Float64Property creates a float64/double property
 func Float64Property() *Schema {
-	so := &Schema{}
-	so.Type = TypeNumber
-	so.Format = "double"
-	return so
+	return FloatFmtProperty("double")
 }
 
 // Float32Property creates a float32/float property
 func Float32Property() *Schema {
+	return FloatFmtProperty("float")
+}
+
+// FloatFmtProperty creates a property for the named float format
+func FloatFmtProperty(format string) *Schema {
 	so := &Schema{}
 	so.Type = TypeNumber
-	so.Format = "float"
+	so.Format = format
 	return so
 }
 
 // Int8Property creates an int8 property
 func Int8Property() *Schema {
-	so := &Schema{}
-	so.Type = TypeInteger
-	so.Format = "int8"
-	return so
+	return IntFmtProperty("int8")
 }
 
 // Int16Property creates an int16 property
 func Int16Property() *Schema {
-	so := &Schema{}
-	so.Type = TypeInteger
-	so.Format = "int16"
-	return so
+	return IntFmtProperty("int16")
 }
 
 // Int32Property creates an int32 property
 func Int32Property() *Schema {
-	so := &Schema{}
-	so.Type = TypeInteger
-	so.Format = "int32"
-	return so
+	return IntFmtProperty("int32")
 }
 
 // Int64Property creates an int64 property
 func Int64Property() *Schema {
+	return IntFmtProperty("int64")
+}
+
+// IntFmtProperty creates a property for the named int format
+func IntFmtProperty(format string) *Schema {
 	so := &Schema{}
 	so.Type = TypeInteger
-	so.Format = "int64"
+	so.Format = format
 	return so
 }
 
@@ -179,8 +177,14 @@ func (s *Schema) WithMinProperties(min int64) *Schema {
 }
 
 // WithType sets the type of this schema for a single value item
-func (s *Schema) WithType(tpe, format string) *Schema {
-	s.Type = tpe
+func (s *Schema) WithType(typ, format string) *Schema {
+	s.Type = typ
+	s.Format = format
+	return s
+}
+
+// WithFormat sets the format of this schema for a single value item
+func (s *Schema) WithFormat(format string) *Schema {
 	s.Format = format
 	return s
 }

@@ -31,3 +31,18 @@ type Components struct {
 	// An object to hold reusable Callback Objects.
 	Callbacks map[string]*Callback `json:"callbacks,omitempty"`
 }
+
+func NewComponents() *Components {
+	return &Components{
+		Schemas:         map[string]*Schema{},
+		Responses:       map[string]*Response{},
+		Parameters:      map[string]*Parameter{},
+		Examples:        map[string]*Example{},
+		RequestBodies:   map[string]*RequestBody{},
+		Headers:         map[string]*Header{},
+		SecuritySchemes: map[string]*SecurityScheme{},
+		Links:           map[string]*Link{},
+		Callbacks:       map[string]*Callback{},
+	}
+
+}
