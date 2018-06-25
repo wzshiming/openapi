@@ -29,7 +29,7 @@ type OpenAPI struct {
 	// The list of values includes alternative security requirement objects that can be used.
 	// Only one of the security requirement objects need to be satisfied to authorize a request.
 	// Individual operations can override this definition.
-	Security map[string]SecurityRequirement `json:"security,omitempty"`
+	Security []map[string]SecurityRequirement `json:"security,omitempty"`
 
 	// A list of tags used by the specification with additional metadata.
 	// The order of the tags can be used to reflect on their order by the parsing tools.
