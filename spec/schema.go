@@ -50,28 +50,38 @@ type schema struct {
 
 	// The following properties are taken directly from the JSON Schema definition and follow the same specifications:
 
-	Title            string   `json:"title,omitempty"`
+	Title string `json:"title,omitempty"`
+
+	// Numbers
 	MultipleOf       *float64 `json:"multipleOf,omitempty"`
 	Maximum          *float64 `json:"maximum,omitempty"`
 	ExclusiveMaximum bool     `json:"exclusiveMaximum,omitempty"`
 	Minimum          *float64 `json:"minimum,omitempty"`
 	ExclusiveMinimum bool     `json:"exclusiveMinimum,omitempty"`
-	MaxLength        *int64   `json:"maxLength,omitempty"`
-	MinLength        *int64   `json:"minLength,omitempty"`
-	Pattern          string   `json:"pattern,omitempty"`
-	MaxItems         *int64   `json:"maxItems,omitempty"`
-	MinItems         *int64   `json:"minItems,omitempty"`
-	UniqueItems      bool     `json:"uniqueItems,omitempty"`
-	MaxProperties    *int64   `json:"maxProperties,omitempty"`
-	MinProperties    *int64   `json:"minProperties,omitempty"`
-	Required         []string `json:"required,omitempty"`
-	Enum             []Any    `json:"enum,omitempty"`
+
+	// Strings
+	MaxLength *int64 `json:"maxLength,omitempty"`
+	MinLength *int64 `json:"minLength,omitempty"`
+	Pattern   string `json:"pattern,omitempty"`
+
+	// Arrays
+	MaxItems    *int64 `json:"maxItems,omitempty"`
+	MinItems    *int64 `json:"minItems,omitempty"`
+	UniqueItems bool   `json:"uniqueItems,omitempty"`
+
+	// Objects
+	MaxProperties *int64   `json:"maxProperties,omitempty"`
+	MinProperties *int64   `json:"minProperties,omitempty"`
+	Required      []string `json:"required,omitempty"`
+
+	// All
+	Enum []Any `json:"enum,omitempty"`
 
 	// The following properties are taken from the JSON Schema definition but their definitions were adjusted to the OpenAPI Specification.
 
 	// Value MUST be a string.
 	// Multiple types via an array are not supported.
-	Type string `json:"type"`
+	Type string `json:"type,omitempty"`
 
 	// Inline or referenced schema MUST be of a Schema Object and not a standard JSON Schema.
 	AllOf []*Schema `json:"allOf,omitempty"`
