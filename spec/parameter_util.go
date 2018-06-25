@@ -33,6 +33,7 @@ func PathParam(name string, schema *Schema) *Parameter {
 	p.In = InPath
 	p.Name = name
 	p.Schema = schema
+	p.Required = true
 	return p
 }
 
