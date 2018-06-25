@@ -124,10 +124,31 @@ func ArrayProperty(items *Schema) *Schema {
 	return so
 }
 
-// ComposedSchema creates a schema with allOf
-func ComposedSchema(schemas ...*Schema) *Schema {
+// AllSchema creates a schema with allOf
+func AllSchema(schemas ...*Schema) *Schema {
 	so := &Schema{}
 	so.AllOf = schemas
+	return so
+}
+
+// OneSchema creates a schema with oneOf
+func OneSchema(schemas ...*Schema) *Schema {
+	so := &Schema{}
+	so.OneOf = schemas
+	return so
+}
+
+// AnySchema creates a schema with anyOf
+func AnySchema(schemas ...*Schema) *Schema {
+	so := &Schema{}
+	so.AnyOf = schemas
+	return so
+}
+
+// NotSchema creates a schema with not
+func NotSchema(schema *Schema) *Schema {
+	so := &Schema{}
+	so.Not = schema
 	return so
 }
 
