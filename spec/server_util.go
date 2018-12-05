@@ -7,6 +7,7 @@ import (
 
 // NewServers Will list all possible server options based on all servers
 func NewServers(uris ...string) ([]*Server, error) {
+	uris = append(uris, "/")
 	uris = removeDuplicates(uris)
 	ss := []*Server{}
 	for _, v := range uris {
