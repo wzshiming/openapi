@@ -1,7 +1,5 @@
 package spec
 
-import "time"
-
 // Primitive data types in the OAS are based on the types supported by the JSON Schema Specification Wright Draft 00.
 // Note that integer as a type is also supported and is defined as a JSON number without a fraction or exponent part.
 // null is not supported as a type (see nullable for an alternative solution).
@@ -15,7 +13,7 @@ const (
 	TypeArray   = "array"
 )
 
-var timeExample = NewAny(time.RFC3339)
+var timeExample = NewAny("2006-01-02T15:04:05+08:00")
 
 // BooleanProperty creates a boolean property
 func BooleanProperty() *Schema {
