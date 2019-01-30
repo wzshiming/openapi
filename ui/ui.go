@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"net/http"
 	"net/url"
+	"os"
 	"time"
 
 	"github.com/wzshiming/go-bindata/fs"
@@ -12,6 +13,16 @@ import (
 )
 
 const index = "index.html"
+
+// HandleWithFile Replace the openapi file path
+func HandleWithFile(name string, data []byte, asset func(path string) ([]byte, error)) http.Handler {
+	return HandleWith(func(path string) ([]byte, error) {
+		if path == name {
+			return data, nil
+		}
+		return nil, os.ErrNotExist
+	}, asset)
+}
 
 // HandleWith Try the contents of openapi from f
 func HandleWith(f, asset func(path string) ([]byte, error)) http.Handler {
