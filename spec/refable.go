@@ -30,10 +30,13 @@ func (m *Refable) UnmarshalJSON(data []byte) error {
 		return errors.New("spec.Refable: UnmarshalJSON on nil pointer")
 	}
 	ref := ref{}
-	json.Unmarshal(data, &ref)
-	sp := strings.SplitN(ref.Ref, "/", 4)
-	m.Ref = sp[len(sp)-1]
-	m.Components = strings.Join(sp[:len(sp)-1], "/")
+	err := json.Unmarshal(data, &ref)
+	if err != nil {
+		return err
+	}
+	i := strings.LastIndex(ref.Ref, "/")
+	m.Components = ref.Ref[:i+1]
+	m.Ref = ref.Ref[i+1:]
 	return nil
 }
 
