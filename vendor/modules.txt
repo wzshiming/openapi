@@ -1,0 +1,8 @@
+# github.com/gorilla/handlers v1.4.0
+github.com/gorilla/handlers
+# github.com/gorilla/mux v1.7.0
+github.com/gorilla/mux
+# github.com/wzshiming/go-bindata v4.0.0+incompatible
+github.com/wzshiming/go-bindata/fs
+# gopkg.in/yaml.v2 v2.2.2
+gopkg.in/yaml.v2
