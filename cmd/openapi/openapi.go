@@ -22,7 +22,7 @@ func init() {
 func main() {
 
 	mux0 := mux.NewRouter()
-	OpenAPI(mux0)
+	openAPI(mux0)
 	mux := handlers.RecoveryHandler()(mux0)
 	mux = handlers.CombinedLoggingHandler(os.Stdout, mux)
 	p := fmt.Sprintf(":%d", port)
@@ -35,11 +35,10 @@ func main() {
 	return
 }
 
-//  OpenAPI
-func OpenAPI(router *mux.Router) *mux.Router {
-	router.PathPrefix("/openapi.json").HandlerFunc(ui.Openapi)
-	router.PathPrefix("/swagger/openapi.json").HandlerFunc(ui.Openapi)
-	router.PathPrefix("/redoc/openapi.json").HandlerFunc(ui.Openapi)
+func openAPI(router *mux.Router) *mux.Router {
+	router.PathPrefix("/openapi.json").HandlerFunc(ui.HandleOpenapi)
+	router.PathPrefix("/swagger/openapi.json").HandlerFunc(ui.HandleOpenapi)
+	router.PathPrefix("/redoc/openapi.json").HandlerFunc(ui.HandleOpenapi)
 	router.PathPrefix("/swagger/").Handler(http.StripPrefix("/swagger", ui.HandleURL(swaggerui.Asset)))
 	router.PathPrefix("/redoc/").Handler(http.StripPrefix("/redoc", ui.HandleURL(redoc.Asset)))
 	return router

@@ -13,6 +13,7 @@ import (
 
 const index = "index.html"
 
+// HandleWith Try the contents of openapi from f
 func HandleWith(f, asset func(path string) ([]byte, error)) http.Handler {
 	fun := f
 	if fun == nil {
@@ -33,6 +34,7 @@ func HandleWith(f, asset func(path string) ([]byte, error)) http.Handler {
 	return http.FileServer(afs)
 }
 
+// HandleURL Get the url address from the url parameter and modify the default address
 func HandleURL(asset func(path string) ([]byte, error)) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		asset0 := func(path string) ([]byte, error) {
@@ -59,8 +61,8 @@ func HandleURL(asset func(path string) ([]byte, error)) http.Handler {
 	})
 }
 
-func Openapi(w http.ResponseWriter, r *http.Request) {
-
+// HandleOpenapi Get the url address from the url parameter to combine it
+func HandleOpenapi(w http.ResponseWriter, r *http.Request) {
 	srcs := r.URL.Query()["src"]
 
 	var root *spec.OpenAPI
