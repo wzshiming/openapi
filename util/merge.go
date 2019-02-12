@@ -54,55 +54,55 @@ func Merge(root, added *spec.OpenAPI) {
 		rcom := root.Components
 		com := added.Components
 		for name, v := range com.Schemas {
-			if _, ok := rcom.Schemas[name]; ok {
+			if _, ok := rcom.Schemas[name]; !ok {
 				rcom.Schemas[name] = v
 			}
 		}
 
 		for name, v := range com.Responses {
-			if _, ok := rcom.Responses[name]; ok {
+			if _, ok := rcom.Responses[name]; !ok {
 				rcom.Responses[name] = v
 			}
 		}
 
 		for name, v := range com.Parameters {
-			if _, ok := rcom.Parameters[name]; ok {
+			if _, ok := rcom.Parameters[name]; !ok {
 				rcom.Parameters[name] = v
 			}
 		}
 
 		for name, v := range com.Examples {
-			if _, ok := rcom.Examples[name]; ok {
+			if _, ok := rcom.Examples[name]; !ok {
 				rcom.Examples[name] = v
 			}
 		}
 
 		for name, v := range com.RequestBodies {
-			if _, ok := rcom.RequestBodies[name]; ok {
+			if _, ok := rcom.RequestBodies[name]; !ok {
 				rcom.RequestBodies[name] = v
 			}
 		}
 
 		for name, v := range com.Headers {
-			if _, ok := rcom.Headers[name]; ok {
+			if _, ok := rcom.Headers[name]; !ok {
 				rcom.Headers[name] = v
 			}
 		}
 
 		for name, v := range com.SecuritySchemes {
-			if _, ok := rcom.SecuritySchemes[name]; ok {
+			if _, ok := rcom.SecuritySchemes[name]; !ok {
 				rcom.SecuritySchemes[name] = v
 			}
 		}
 
 		for name, v := range com.Links {
-			if _, ok := rcom.Links[name]; ok {
+			if _, ok := rcom.Links[name]; !ok {
 				rcom.Links[name] = v
 			}
 		}
 
 		for name, v := range com.Callbacks {
-			if _, ok := rcom.Callbacks[name]; ok {
+			if _, ok := rcom.Callbacks[name]; !ok {
 				rcom.Callbacks[name] = v
 			}
 		}
