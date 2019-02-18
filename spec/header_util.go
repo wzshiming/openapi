@@ -6,12 +6,6 @@ func (h *Header) WithDescription(description string) *Header {
 	return h
 }
 
-// WithName a fluent builder method to override the name of the parameter
-func (h *Header) WithName(name string) *Header {
-	h.Name = name
-	return h
-}
-
 // AllowsEmptyValues flags this parameter as being ok with empty values
 func (h *Header) AllowsEmptyValues() *Header {
 	h.AllowEmptyValue = true
