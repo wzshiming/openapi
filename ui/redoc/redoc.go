@@ -86,7 +86,7 @@ func _50xHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "50x.html", size: 494, mode: os.FileMode(420), modTime: time.Unix(1548819931, 0)}
+	info := bindataFileInfo{name: "50x.html", size: 494, mode: os.FileMode(420), modTime: time.Unix(1550923562, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -106,7 +106,7 @@ func faviconPng() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "favicon.png", size: 8215, mode: os.FileMode(420), modTime: time.Unix(1548819931, 0)}
+	info := bindataFileInfo{name: "favicon.png", size: 8215, mode: os.FileMode(420), modTime: time.Unix(1550923562, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -126,7 +126,7 @@ func indexHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "index.html", size: 473, mode: os.FileMode(420), modTime: time.Unix(1548819931, 0)}
+	info := bindataFileInfo{name: "index.html", size: 473, mode: os.FileMode(420), modTime: time.Unix(1550923563, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -146,7 +146,7 @@ func redocStandaloneJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "redoc.standalone.js", size: 789306, mode: os.FileMode(420), modTime: time.Unix(1548819931, 0)}
+	info := bindataFileInfo{name: "redoc.standalone.js", size: 789306, mode: os.FileMode(420), modTime: time.Unix(1550923562, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
