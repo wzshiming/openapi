@@ -14,6 +14,17 @@ import (
 
 const index = "index.html"
 
+// HandleWithFiles Replace the openapi file path
+func HandleWithFiles(m map[string][]byte, asset func(path string) ([]byte, error)) http.Handler {
+	return HandleWith(func(path string) ([]byte, error) {
+		data, ok := m[path]
+		if ok {
+			return data, nil
+		}
+		return nil, os.ErrNotExist
+	}, asset)
+}
+
 // HandleWithFile Replace the openapi file path
 func HandleWithFile(name string, data []byte, asset func(path string) ([]byte, error)) http.Handler {
 	return HandleWith(func(path string) ([]byte, error) {
