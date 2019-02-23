@@ -8,12 +8,12 @@ import (
 )
 
 func JSON2YAML(d []byte) ([]byte, error) {
-	var v interface{}
-	err := yaml.Unmarshal(d, &v)
+	ms := yaml.MapSlice{}
+	err := yaml.Unmarshal(d, &ms)
 	if err != nil {
 		return nil, err
 	}
-	return yaml.Marshal(v)
+	return yaml.Marshal(ms)
 }
 
 func YAML2JSON(d []byte) ([]byte, error) {
