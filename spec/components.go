@@ -32,6 +32,7 @@ type Components struct {
 	Callbacks map[string]*Callback `json:"callbacks,omitempty"`
 }
 
+// NewComponents create a new new components
 func NewComponents() *Components {
 	return &Components{
 		Schemas:         map[string]*Schema{},
@@ -44,5 +45,4 @@ func NewComponents() *Components {
 		Links:           map[string]*Link{},
 		Callbacks:       map[string]*Callback{},
 	}
-
 }
