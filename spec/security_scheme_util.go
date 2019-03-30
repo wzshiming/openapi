@@ -1,15 +1,26 @@
 package spec
 
 const (
-	basic  = "basic"
-	apiKey = "apiKey"
-	oauth2 = "oauth2"
+	http          = "http"
+	apiKey        = "apiKey"
+	oauth2        = "oauth2"
+	openIdConnect = "openIdConnect"
 )
 
 // BasicAuth creates a basic auth security scheme
 func BasicAuth() *SecurityScheme {
 	ss := &SecurityScheme{}
-	ss.Type = basic
+	ss.Type = http
+	ss.Scheme = "basic"
+	return ss
+}
+
+// BearerAuth creates a bearer auth security scheme
+func BearerAuth(bearerFormat string) *SecurityScheme {
+	ss := &SecurityScheme{}
+	ss.Type = http
+	ss.Scheme = "bearer"
+	ss.BearerFormat = bearerFormat
 	return ss
 }
 
