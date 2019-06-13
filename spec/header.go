@@ -36,7 +36,7 @@ type header struct {
 	// For other types of parameters this property has no effect.
 	// When style is form, the default value is true.
 	// For all other styles, the default value is false.
-	Explode bool `json:"explode,omitempty"`
+	Explode bool `json:"explode"`
 
 	// Determines whether the parameter value SHOULD allow reserved characters, as defined by RFC3986 :/?#[]@!$&'()*+,;= to be included without percent-encoding.
 	// This property only applies to parameters with an in value of query.
